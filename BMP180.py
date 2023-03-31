@@ -104,9 +104,20 @@ def readBmp180(addr=0x77):
   #altitude = round(altitude,2)
 
   return (temperature,pressure) 
-  
+ 
+def main():   
   while(True):
       temp,pressure = readBmp180(addr=0x77)
       print(f"Temperature : {temp}{chr(248)}C")
       print(f"Pressure : {pressure}hpa")
       
+      
+if __name__ == '__main__':
+  try:
+    main()
+  except KeyboardInterrupt:
+    pass
+  finally:
+    GPIO.cleanup()
+ 
+ 
