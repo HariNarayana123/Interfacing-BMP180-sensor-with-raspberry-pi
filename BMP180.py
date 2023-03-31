@@ -105,4 +105,8 @@ def readBmp180(addr=0x77):
 
   return (temperature,pressure) 
   
-  
+  while(True):
+      temp,pressure = readBmp180(addr=0x77)
+      print(f"Temperature : {temp}{chr(248)}C")
+      print(f"Pressure : {pressure}hpa")
+      
